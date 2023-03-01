@@ -23,7 +23,10 @@ public class PricesController {
 
     PricesService pricesService;
 
-
+    /**
+     * Endpoint de consulta para busqueda por fecha, brand_id y product_id.
+     *
+     **/
     @GetMapping(value = "/prices", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public List<PricesDTO> buscarProducto(@Validated @RequestBody(required = true) PricesEntradaDTO entrada) throws Exception {

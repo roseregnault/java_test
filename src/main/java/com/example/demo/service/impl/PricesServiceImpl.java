@@ -21,7 +21,12 @@ public class PricesServiceImpl implements PricesService {
     /** The prices service DAO.*/
     private final PricesDAO pricesDAO;
 
-
+    /**
+     * Metodo de implementacion para la busqueda de productos segun los criterios.
+     *
+     * @param entrada the entrada.
+     * @return prices.
+     */
     @Override
     public List<PricesDTO> buscarPrices(PricesEntradaDTO entrada) {
 
@@ -35,6 +40,12 @@ public class PricesServiceImpl implements PricesService {
         }));
     }
 
+    /**
+     * Mapeo de datos con mapstruct.
+     *
+     * @param brandDTO
+     * @return map.
+     */
     private List<PricesDTO> mapPrices (PricesEntradaDTO brandDTO){
         return modelMapper.entityListToSource(pricesDAO.getTPrices(brandDTO.getBrand_id(), brandDTO.getStart_date()
                 ,brandDTO.getProduct_id()));
