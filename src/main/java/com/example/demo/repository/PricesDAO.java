@@ -1,6 +1,6 @@
 package com.example.demo.repository;
 
-import com.example.demo.dto.PricesEntradaDTO;
+
 import com.example.demo.entity.PricesEntity;
 import com.example.demo.entity.PricesEntityId;
 import org.springframework.data.jpa.repository.JpaRepository;
