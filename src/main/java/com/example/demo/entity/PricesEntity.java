@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.sql.Date;
@@ -26,7 +27,7 @@ public class PricesEntity {
     @Column(name = "brand_id",insertable=false, updatable=false)
     private int brand_id;
 
-    @OneToOne(cascade = CascadeType.ALL,optional=false)
+    @ManyToOne(cascade = CascadeType.ALL,optional=false)
     @JoinColumn(name = "brand_id", referencedColumnName = "brand_id", insertable=false, updatable=false)
     private BrandEntity brandEntity;
 
@@ -49,6 +50,10 @@ public class PricesEntity {
     /** priority*/
     @Column(name = "priority")
     private String priority;
+
+    /** price*/
+    @Column(name = "price")
+    private String price;
 
     /** currency*/
     @Column(name = "curr")

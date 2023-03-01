@@ -15,8 +15,10 @@ import java.sql.Date;
 @Setter
 public class BrandEntity {
 
+    private static final long serialVersionUID = -1L;
+
     @EmbeddedId
-    private BrandEntityId brand_id;
+    private BrandEntityId id;
 
     @Column(name = "brand_description")
     private String brand_description;

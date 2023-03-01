@@ -1,18 +1,54 @@
 package com.example.demo.util;
 
-import lombok.experimental.UtilityClass;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
-import java.util.Collection;
+
+import com.example.demo.dto.PricesDTO;
+import com.example.demo.dto.PricesEntradaDTO;
+import com.example.demo.entity.PricesEntity;
+import org.mapstruct.Mapper;
+
 import java.util.List;
-@Configuration
+
+@Mapper
 public interface ObjectMapper {
 
-    <D> D map(Object o, Class<D> clazz);
+
+
+     List<PricesDTO> entityListToSource(List<PricesEntity> listPricesEntity);
+
+     PricesDTO prueba (PricesEntity pri);
+
+
+
+
+
+
+
+   /* <D> D map(Object o, Class<D> clazz) ;
 
     <D> Collection<D> map(Collection<?> oList, Class<D> clazzDestino);
 
     <D> List<D> map(List<?> oList, Class<D> clazzDestino);
+
+    default <D> List<D> mapCollection(Collection<?> oList, Class<D> clazzDestino) {
+        if (oList == null) {
+            return null;
+        } else {
+            List<D> convertedList = new ArrayList<>();
+            for (Object or : oList) {
+                convertedList.add(map(or, clazzDestino));
+            }
+            return convertedList;
+        }
+    }
+
+    default <D> D mapMapper(Object source, Class<D> destination){
+        if (source == null){
+            return null;
+        }else{
+            return (D) Arrays.stream(destination.getFields()).findAny();
+        }
+    }*/
+
+
 }

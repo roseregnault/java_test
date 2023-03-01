@@ -24,20 +24,20 @@ public class PricesServiceImpl implements PricesService {
 
     @Override
     public List<PricesDTO> buscarPrices(PricesEntradaDTO entrada) {
-        return mapPrices(entrada).stream().collect(Collectors.collectingAndThen(Collectors.toList(),
-                pricesDTOS -> {
-                    if(pricesDTOS.isEmpty()) try {
-                        throw new Exception("No se han encontrado elementos con este criterio de busqueda.");
-                    } catch (Exception e) {
-                        throw new RuntimeException(e);
-                    }
-                    return pricesDTOS;
+
+        return mapPrices(entrada).stream().collect(Collectors.collectingAndThen(Collectors.toList(), prices -> {
+            if (prices.isEmpty()) try {
+                throw new Exception("No se han encontrado elementos con estos criterios de búsqueda");
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+            return prices;
         }));
     }
 
     private List<PricesDTO> mapPrices (PricesEntradaDTO brandDTO){
-        return modelMapper.map(pricesDAO.findByid(brandDTO), PricesDTO.class);
+        return modelMapper.entityListToSource(pricesDAO.getTPrices(brandDTO.getBrand_id(), brandDTO.getStart_date()
+                ,brandDTO.getProduct_id()));
     }
-
 
 }

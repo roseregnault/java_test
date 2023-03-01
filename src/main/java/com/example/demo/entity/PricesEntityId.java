@@ -20,11 +20,10 @@ public class PricesEntityId implements Serializable {
 
     private static final long serialVersionUID = -1L;
 
-    private int id;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "brand_id", referencedColumnName = "brand_id")
-    private BrandEntity brandEntity;
+    private BrandEntity id;
 
     /** start date*/
     @Column(name = "start_date")

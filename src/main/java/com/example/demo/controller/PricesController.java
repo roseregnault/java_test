@@ -26,9 +26,9 @@ public class PricesController {
     PricesService pricesService;
 
 
-    @PostMapping(value = "/prices", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/prices", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public List<PricesDTO> buscarProducto(@RequestBody(required = true) PricesEntradaDTO entrada) throws Exception {
+    public List<PricesDTO> buscarProducto(@Validated @RequestBody(required = true) PricesEntradaDTO entrada) throws Exception {
         return pricesService.buscarPrices(entrada);
     }
 }
