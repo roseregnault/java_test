@@ -13,7 +13,7 @@ public interface ObjectMapper {
 
 
 
-     List<PricesDTO> entityListToSource(List<PricesEntity> listPricesEntity);
+     PricesDTO entityListToSource(PricesEntity listPricesEntity);
 
      PricesDTO prueba (PricesEntity pri);
 
