@@ -18,7 +18,7 @@ public interface PricesService {
      * @return the busqueda prices dto.
      */
 
-    public List<PricesDTO> buscarPrices(PricesEntradaDTO entrada);
+    PricesDTO buscarPrices(PricesEntradaDTO entrada);
 
 
 }
