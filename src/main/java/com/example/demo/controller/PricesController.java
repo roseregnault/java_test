@@ -29,7 +29,7 @@ public class PricesController {
      **/
     @GetMapping(value = "/prices", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public List<PricesDTO> buscarProducto(@Validated @RequestBody(required = true) PricesEntradaDTO entrada) throws Exception {
+    public PricesDTO buscarProducto(@Validated @RequestBody(required = true) PricesEntradaDTO entrada) throws Exception {
         return pricesService.buscarPrices(entrada);
     }
 }
