@@ -28,7 +28,7 @@ public class PricesServiceImpl implements PricesService {
      * @return prices.
      */
     @Override
-    public List<PricesDTO> buscarPrices(PricesEntradaDTO entrada) {
+    public PricesDTO buscarPrices(PricesEntradaDTO entrada) {
 
         return mapPrices(entrada).stream().collect(Collectors.collectingAndThen(Collectors.toList(), prices -> {
             if (prices.isEmpty()) try {
@@ -46,7 +46,7 @@ public class PricesServiceImpl implements PricesService {
      * @param brandDTO
      * @return map.
      */
-    private List<PricesDTO> mapPrices (PricesEntradaDTO brandDTO){
+    private PricesDTO mapPrices (PricesEntradaDTO brandDTO){
         return modelMapper.entityListToSource(pricesDAO.getTPrices(brandDTO.getBrand_id(), brandDTO.getStart_date()
                 ,brandDTO.getProduct_id()));
     }
