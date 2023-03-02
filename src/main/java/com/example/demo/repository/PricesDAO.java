@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Date;
-import java.util.List;
+
 @Repository
 public interface PricesDAO extends JpaRepository<PricesEntity, PricesEntityId> {
 
@@ -27,7 +27,7 @@ public interface PricesDAO extends JpaRepository<PricesEntity, PricesEntityId> {
                 "p.brand_id = ?1 " +
                 "AND p.start_date = ?2 " +
                 "AND p.product_id = ?3 ", nativeQuery = true)
-    List<PricesEntity> getTPrices(Integer brand_id,
+    PricesEntity getTPrices(Integer brand_id,
                                   Date start_date,
                                   String product_id);
 }
